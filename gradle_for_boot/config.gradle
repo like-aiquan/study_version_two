@@ -1,0 +1,11 @@
+ext {
+    spring_boot_starter_version = '2.4.5'
+
+    boot = [
+            jdk_version: 11,
+    ]
+
+    dependencies = [
+            'web-starter': "org.springframework.boot:spring-boot-stater-web:${spring_boot_starter_version}"
+    ]
+}

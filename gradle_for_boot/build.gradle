@@ -1,0 +1,43 @@
+// 第二种
+plugins {
+    id 'org.springframework.boot' version '2.4.5'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+// 本地坐标
+group 'like.aiquan'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 11
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+// 依赖仓库
+repositories {
+    // 默认是maven2  可配置
+    mavenLocal()
+    maven { url "https://maven.aliyun.com/nexus/content/groups/public" }
+    maven { url 'https://repo.spring.io/libs-snapshot' }
+    maven { url "https://maven.repository.redhat.com/ga/" }
+    maven { url "https://maven.nuiton.org/nexus/content/groups/releases/" }
+    maven { url "https://repository.cloudera.com/artifactory/cloudera-repos/" }
+    // 默认
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'mysql:mysql-connector-java'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}

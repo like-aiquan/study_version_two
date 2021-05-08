@@ -1,0 +1,4 @@
+rootProject.name = 'gradle_for_parent_sub'
+include 'sub_module'
+include 'sub_common'
+

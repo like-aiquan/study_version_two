@@ -1,0 +1,67 @@
+plugins {
+    // 导入插件 并阻止默认执行行为
+    id 'org.springframework.boot' version '2.4.5' apply false
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE' apply false
+}
+
+group 'like.aiquan'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven { url "https://maven.aliyun.com/nexus/content/groups/public" }
+}
+
+//subprojects {
+//    apply plugin: 'io.spring.dependency-management'
+//    apply plugin: 'org.springframework.boot'
+//    apply plugin: 'java'
+//
+//    group 'like.aiquan'
+//    version '1.0-SNAPSHOT'
+//
+//    // 所有子模块全部添加的依赖
+//    dependencies {
+//        implementation 'org.springframework.boot:spring-boot-starter-web'
+//    }
+//}
+
+configure(subprojects) { project ->
+    // 执行插件 ( plugins导入这里的插件坐标 )
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+
+    // 排除springboot集成的日志结构
+    configurations {
+        providedRuntime
+        // remove default logger
+        all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+
+
+    // lombok 依赖必要的一个步骤 设置注解处理器
+//    configurations {
+//        compileOnly {
+//            // note annotationProcessor生成额外文件的规则是在依赖库里定义的，只在编译的时候执行，但是库最终不打包到jar中
+//            extendsFrom annotationProcessor
+//        }
+//    }
+
+
+    // 公共依赖 log4j2
+    dependencies {
+//        // https://mvnrepository.com/artifact/org.projectlombok/lombok
+//        //lombok
+//        compileOnly 'org.projectlombok:lombok'
+//        annotationProcessor 'org.projectlombok:lombok'
+        implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+    }
+
+    // 依赖版本管理  但是好像没有上
+    dependencyManagement {
+        dependencies {
+//            dependency 'org.springframework.boot:spring-boot-starter-web:2.4.5'
+        }
+    }
+
+}

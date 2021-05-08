@@ -1,0 +1,7 @@
+description 'sub_module'
+
+dependencies {
+    // 依赖于公共模块
+    compile(project(':sub_common'))
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}
