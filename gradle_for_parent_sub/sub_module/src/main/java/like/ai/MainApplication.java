@@ -1,6 +1,7 @@
 package like.ai;
 
 
+import like.aiquan.CommonUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.boot.SpringApplication;
@@ -26,9 +27,10 @@ public class MainApplication {
   }
 
   @GetMapping("/hello")
-  public String hello() {
+  public Boolean hello() {
+    Boolean hello = CommonUtils.isEmpty("hello");
     // 正常打印
     log.info("get hello...");
-    return "hello";
+    return hello;
   }
 }
