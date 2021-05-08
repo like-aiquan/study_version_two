@@ -7,3 +7,6 @@ gradlew 会首先在同版本的jvm中去找有没有启动好的Daemon信息，
 Daemon可以配置项目启动完成即down。
 
 大部分笔记在代码里。
+
+### 初始化项目 
+fork -> init src/main/java/  and  src/main/resources/
