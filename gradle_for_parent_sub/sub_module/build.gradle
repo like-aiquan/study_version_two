@@ -3,5 +3,9 @@ description 'sub_module'
 dependencies {
     // 依赖于公共模块
     compile(project(':sub_common'))
+    // 自身模块需要的依赖
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    // 版本控制的依赖
+    implementation 'org.apache.commons:commons-lang3'
+
 }

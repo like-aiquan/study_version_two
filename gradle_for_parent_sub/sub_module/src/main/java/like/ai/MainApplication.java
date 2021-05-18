@@ -1,6 +1,8 @@
 package like.ai;
 
 
+
+import java.io.IOException;
 import like.aiquan.CommonUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,7 +22,7 @@ public class MainApplication {
 
   public static final Logger log = LogManager.getLogger(MainApplication.class);
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
     // 在run方法之前打出日志，由于springboot的初始化还没开始所以这里要不打不出来 要不就是一个默认样式的日志
     log.info("starter ...");
     SpringApplication.run(MainApplication.class, args);

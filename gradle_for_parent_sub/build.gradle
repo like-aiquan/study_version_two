@@ -42,7 +42,7 @@ configure(subprojects) { project ->
     // lombok 依赖必要的一个步骤 设置注解处理器
 //    configurations {
 //        compileOnly {
-//            // note annotationProcessor生成额外文件的规则是在依赖库里定义的，只在编译的时候执行，但是库最终不打包到jar中
+//            // note annotationProcessor 生成额外文件的规则是在依赖库里定义的，只在编译的时候执行，但是库最终不打包到jar中
 //            extendsFrom annotationProcessor
 //        }
 //    }
@@ -50,17 +50,16 @@ configure(subprojects) { project ->
 
     // 公共依赖 log4j2
     dependencies {
-//        // https://mvnrepository.com/artifact/org.projectlombok/lombok
-//        //lombok
+//        //lombok 
 //        compileOnly 'org.projectlombok:lombok'
 //        annotationProcessor 'org.projectlombok:lombok'
         implementation 'org.springframework.boot:spring-boot-starter-log4j2'
     }
 
-    // 依赖版本管理  但是好像没有上
+    // 版本控制
     dependencyManagement {
         dependencies {
-//            dependency 'org.springframework.boot:spring-boot-starter-web:2.4.5'
+            dependency 'org.apache.commons:commons-lang3:3.12.0'
         }
     }
 
